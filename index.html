@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173c35"><meta name="description" content="Sân Đình Tuổi Thơ: những trò chơi dân gian thân quen, chơi một mình hoặc mời bạn bè cùng tham gia.">
+<title>Sân Đình Tuổi Thơ — Chạm một cái, trở về tuổi thơ</title>
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
+</head>
+<body>
+<div class="app-shell">
+ <aside class="sidebar" aria-label="Điều hướng chính">
+   <button class="brand" data-route="home" aria-label="Trở về trang chủ"><span class="brand-emblem">✣</span><span><b>Sân Đình<br><em>Tuổi Thơ</em></b><small>GÓC KÝ ỨC VIỆT NAM</small></span></button>
+   <span class="nav-heading">KHÁM PHÁ</span>
+   <nav class="side-nav">
+     <button data-route="home" class="nav-link active"><span>⌂</span> Trang chủ</button>
+     <button data-route="library" class="nav-link"><span>▦</span> Kho trò chơi</button>
+     <button data-route="lobby" class="nav-link"><span>♧</span> Phòng bạn bè</button>
+     <button data-route="game" class="nav-link"><span>◈</span> Ô Ăn Quan</button>
+   </nav>
+   <span class="nav-heading">GÓC CỦA BẠN</span>
+   <nav class="side-nav"><button data-route="profile" class="nav-link"><span>♙</span> Góc ký ức</button></nav>
+   <div class="sidebar-story"><span>✦ MỘT CHÚT BÌNH YÊN</span><div class="mini-lantern">🏮</div><p>Ngày ấy, niềm vui chỉ cần một sân gạch và vài viên sỏi.</p></div>
+   <div class="sidebar-bottom"><span class="online-dot"></span> Phiên bản 2.0 · chơi trực tuyến</div>
+ </aside>
+ <div class="main-column">
+   <header class="topbar"><div class="breadcrumb">
+  <button class="crumb-root" data-route="home">SÂN ĐÌNH</button> 
+  <span>/</span> 
+  <strong id="crumb">TRANG CHỦ</strong>
+</div><div class="top-controls"><span class="today-tag">✦ Chiều tà Hội An</span><button class="round-icon" id="sound" aria-label="Tắt hoặc bật âm thanh" title="Âm thanh">♫</button><button class="avatar-btn" data-route="profile" aria-label="Hồ sơ">✿</button></div></header>
+   <main id="main">
+    <section class="page active" data-page="home">
+      <div class="hero"><div class="hero-content"><span class="overline light">✧ MỘT GÓC NHỎ CỦA TUỔI THƠ</span><h1>Về sân đình,<br><i>chơi một ván nhé?</i></h1><p>Nhặt sỏi, rải quân, gọi nhau í ới. Những trò chơi thân quen giờ ở ngay đầu ngón tay, dù bạn ở bất cứ đâu.</p><div class="hero-actions"><button class="btn cream" id="hero-play">✦ Chơi Ô Ăn Quan <span>↗</span></button><button class="btn outline-white" id="hero-invite">Mời bạn cùng chơi</button></div><small>KHÔNG CẦN ĐĂNG KÝ · CHƠI ĐƯỢC TRÊN ĐIỆN THOẠI</small></div><div class="hero-illustration" aria-hidden="true"><div class="sun"></div><div class="roof roof-back"></div><div class="roof roof-front"></div><div class="hanging-lantern lamp-a">🏮</div><div class="hanging-lantern lamp-b">🏮</div><div class="stone-table"><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span></div><div class="floor-bricks"></div></div></div>
+      <div class="section-head"><div><span class="overline">BẮT ĐẦU TỪ ĐÂY</span><h2>Hôm nay mình chơi gì?</h2></div><button class="text-link" data-route="library">Xem tất cả 10 trò <span>↗</span></button></div>
+      <div class="featured-grid" id="home-cards"></div>
+      <div class="memory-banner"><div class="memory-ornament">✿</div><div><span class="overline">GÓC KÝ ỨC</span><h3>Có những điều nhỏ bé, nhớ mãi không quên.</h3><p>Mỗi trò chơi là một mảnh tuổi thơ. Cùng giữ gìn bằng cách chơi và chia sẻ.</p></div><button class="btn dark" data-route="profile">Vào góc ký ức ↗</button></div>
+    </section>
+    <section class="page" data-page="library">
+      <div class="page-heading"><span class="overline">MƯỜI TRÒ, MUÔN KỶ NIỆM</span><h1>Kho trò chơi <i>dân gian</i></h1><p>Chọn một trò quen, hoặc khám phá lại những điều tưởng đã quên.</p></div>
+      <div class="filters" role="group" aria-label="Lọc trò chơi"><button class="filter active" data-filter="all">Tất cả</button><button class="filter" data-filter="ready">Chơi được</button><button class="filter" data-filter="strategy">Đấu trí</button><button class="filter" data-filter="quick">Chơi nhanh</button><button class="filter" data-filter="nostalgia">Tuổi thơ</button></div>
+      <div class="library-grid" id="library-cards"></div>
+    </section>
+    <section class="page" data-page="lobby">
+      <div class="page-heading compact"><span class="overline">HẸN BẠN NGOÀI SÂN</span><h1>Phòng <i>bạn bè</i></h1><p>Một người tạo phòng, một người nhập mã — đơn giản vậy thôi!</p></div>
+      <div class="lobby-grid"><article class="paper-card create-card"><span class="overline">01 / CHỦ PHÒNG</span><div class="lobby-icon">♧</div><h2>Rủ bạn vào chơi</h2><p>Tạo một chiếc bàn Ô Ăn Quan riêng, sau đó gửi mã hoặc liên kết cho người bạn muốn chơi cùng.</p><button class="btn primary" id="make-room">Tạo phòng 2 người <span>↗</span></button><button class="btn muted" id="solo-start">✦ Tập chơi với máy</button></article>
+       <article class="paper-card join-card"><span class="overline">02 / NGƯỜI ĐƯỢC MỜI</span><div class="lobby-icon">✉</div><h2>Đã có mã phòng?</h2><p>Nhập 6 ký tự bạn nhận từ bạn bè để vào sân ngay.</p><label class="field-label" for="room-input">MÃ PHÒNG</label><input id="room-input" class="code-input" maxlength="6" placeholder="VD: 8AB12C" autocomplete="off" spellcheck="false"><button class="btn dark" id="join-room">Vào phòng <span>→</span></button></article>
+      </div>
+      <div class="tip-bar">✧ <span><b>Mẹo nhỏ:</b> Gửi liên kết mời qua Zalo hoặc Messenger, bạn của bạn chỉ cần mở là có thể vào phòng.</span></div>
+    </section>
+    <section class="page" data-page="game">
+      <div class="game-topline"><div><span class="overline">BÀN CỜ DÂN GIAN • 01</span><h1>Ô Ăn Quan <i>· Về làng chơi</i></h1></div><div class="game-actions"><button class="small-action" id="tutorial-btn">? Luật chơi</button><button class="small-action" id="graphics-btn" title="Chuyển chế độ xem">◈ Xem 3D</button><button class="small-action" data-route="lobby">♧ Phòng</button></div></div>
+      <div class="game-layout"><div class="board-area">
+         <div class="board-top"><div class="game-badge">✦ BÀN CỜ GỖ GỤ</div><div class="game-badge connection" id="connection">● Chưa vào phòng</div></div>
+         <div class="match-strip"><div class="player-mini" id="player-top"><span class="player-medal">02</span><span><small>ĐỐI THỦ</small><b id="player2-name">Người chơi 2</b></span></div><div class="match-score"><span id="score-top">00</span><small>✦</small><span id="score-bottom">00</span></div><div class="player-mini me" id="player-bottom"><span><small>BẠN</small><b id="player1-name">Người chơi 1</b></span><span class="player-medal">01</span></div></div>
+         <div class="board-wrap" id="board-wrap"><div class="board-decoration" aria-hidden="true">✿ &nbsp; T R Ò &nbsp; X Ư A &nbsp; ✿</div><div class="board" id="board" aria-label="Bàn Ô Ăn Quan"><div class="pit-grid top-row" id="top-row"></div><div class="pit-grid bottom-row" id="bottom-row"></div><div class="board-engrave" aria-hidden="true">✦</div><div class="quan-slot left-quan" id="left-quan"></div><div class="quan-slot right-quan" id="right-quan"></div></div><div id="three-viewport" hidden></div><div id="flying-stones" aria-hidden="true"></div></div>
+         <div class="board-status" aria-live="polite"><span class="status-spark">✳</span><span id="game-status">Tạo phòng hoặc tập chơi với máy để bắt đầu.</span></div>
+         <div class="board-bottom"><button id="reset-view" class="text-link" hidden>⌖ Đặt lại camera</button><span id="board-subtitle">Chọn ô quân thuộc phía bạn để xem số lượng và chọn hướng.</span><span class="fps-badge" id="fps-badge">MƯỢT · 2.5D</span></div>
+        </div><aside class="game-side"><div class="control-card"><span class="overline">NƯỚC ĐI CỦA BẠN</span><h2 id="selection-title">Chọn một ô Dân</h2><p id="selection-desc">Mỗi ô hiện rõ số lượng quân. Chạm vào ô bên mình để lựa chọn.</p><div class="selected-preview"><span>Ô ĐÃ CHỌN</span><strong id="selected-display">—</strong><span id="selected-meta">Chưa chọn ô</span></div><div class="direction-row"><button class="direction-btn" id="go-left" disabled><span class="direction-icon">↶</span><b>Rải ngược vòng</b><small>← phím trái</small></button><button class="direction-btn" id="go-right" disabled><span class="direction-icon">↷</span><b>Rải thuận vòng</b><small>→ phím phải</small></button></div><button class="btn subtle-wide" id="cancel-selection">Hủy chọn</button></div>
+          <div class="room-card" id="room-card"><span class="overline">CHƠI CÙNG BẠN</span><h3 id="room-caption">Chưa có phòng chơi</h3><p id="room-detail">Mời bạn vào chơi hoặc tập với máy ngay tại đây.</p><div class="room-code-row" id="room-code-row" hidden><b id="room-code">------</b><button id="copy-link" aria-label="Sao chép liên kết phòng">⧉ Sao chép</button></div><div class="room-cta"><button class="btn primary" id="in-game-create">Tạo phòng</button><button class="btn dark" id="in-game-solo">Chơi với máy</button><button class="btn primary" id="play-again" hidden>↻ Chơi ván mới</button><button class="btn muted" id="leave-room" hidden>Rời phòng</button></div></div>
+          <div class="helper-card"><span>✦ LỜI NHẮC NHỎ</span><p>Muốn rải quân, hãy chọn ô Dân còn sỏi thuộc phía mình rồi chọn một trong hai hướng.</p></div>
+         </aside></div>
+    </section>
+    <section class="page" data-page="profile"><div class="page-heading"><span class="overline">KỶ NIỆM LÀ ĐỂ GIỮ GÌN</span><h1>Góc ký ức <i>của bạn</i></h1><p>Một nơi lưu lại những ván chơi và dấu ấn vui vẻ trên chính thiết bị này.</p></div><div class="profile-hero paper-card"><span class="profile-avatar">✿</span><div><span class="overline">NGƯỜI GIỮ KÝ ỨC</span><h2 id="profile-name">Người bạn sân đình</h2><p>Chẳng cần tài khoản, cứ vui chơi là được.</p></div><button class="btn dark" id="edit-name">Đổi tên hiển thị</button></div><div class="stat-grid"><div class="stat-card"><span>SỐ VÁN HOÀN THÀNH</span><b id="stat-matches">0</b><small>Ô Ăn Quan</small></div><div class="stat-card"><span>THẮNG CUỘC</span><b id="stat-wins">0</b><small>Chơi cùng bạn hoặc máy</small></div><div class="stat-card"><span>OẲN TÙ TÌ</span><b id="stat-rps">0</b><small>Lượt đã chơi</small></div></div><div class="profile-quote">“Tuổi thơ không mất đi, chỉ cần có ai đó rủ mình chơi lại.” <span>— Sân Đình Tuổi Thơ</span></div></section>
+    <section class="page" data-page="rps"><div class="page-heading compact"><span class="overline">CHƠI NHANH • MỘT MÌNH</span><h1>Oẳn tù tì <i>thật vui</i></h1><p>Ba lựa chọn quen thuộc. Xem hôm nay ai may mắn nhé!</p></div><div class="rps-stage paper-card"><div class="rps-score"><span>BẠN <strong id="rps-me">0</strong></span><span>✧ CHƠI VỚI MÁY ✧</span><span>MÁY <strong id="rps-ai">0</strong></span></div><div class="rps-duel"><div id="rps-hand-me">✊</div><span>VS</span><div id="rps-hand-ai">✊</div></div><h2 id="rps-message">Bạn chọn trước nhé!</h2><div class="rps-choices"><button data-rps="0">✊ <span>Búa</span></button><button data-rps="1">✋ <span>Bao</span></button><button data-rps="2">✌️ <span>Kéo</span></button></div><button class="btn muted" id="rps-reset">Chơi từ đầu ↻</button></div></section>
+    <section class="page" data-page="caro"><div class="page-heading compact"><span class="overline">CHƠI TRÊN CÙNG THIẾT BỊ</span><h1>Caro <i>học trò</i></h1><p>Hai bạn lần lượt đánh X và O trên cùng màn hình. Nối 5 ô để thắng.</p></div><div class="caro-layout"><div class="caro-paper paper-card"><div id="caro-grid" class="caro-grid" aria-label="Bàn Caro 10 nhân 10"></div></div><div class="caro-aside paper-card"><span class="overline">VÁN ĐẤU NHỎ</span><h2 id="caro-status">Đến lượt X</h2><p>Đặt 5 dấu cùng hàng ngang, dọc hoặc chéo là thắng.</p><button class="btn primary" id="caro-reset">Ván mới ↻</button></div></div></section>
+   </main>
+   <footer class="site-footer"><span>✿ SÂN ĐÌNH TUỔI THƠ</span><span>Chạm một cái, trở về tuổi thơ.</span><span>MADE WITH ♥ IN VIET NAM</span></footer>
+ </div>
+</div>
+<nav class="mobile-nav" aria-label="Điều hướng điện thoại"><button data-route="home" class="active">⌂ <span>Trang chủ</span></button><button data-route="library">▦ <span>Trò chơi</span></button><button data-route="lobby">♧ <span>Phòng</span></button><button data-route="game">◈ <span>Bàn cờ</span></button><button data-route="profile">♙ <span>Hồ sơ</span></button></nav>
+<dialog id="tutorial" class="dialog"><div class="dialog-header"><span class="overline">BÍ KÍP TUỔI THƠ</span><button class="dialog-close" data-close="tutorial" aria-label="Đóng">✕</button></div><h2>Luật Ô Ăn Quan</h2><p><b>01.</b> Hai người, mỗi người có năm ô Dân. Mỗi ô bắt đầu với năm viên sỏi. Hai ô lớn hai đầu là ô Quan.</p><p><b>02.</b> Đến lượt mình, chạm một ô Dân có sỏi thuộc phía mình rồi chọn rải thuận hoặc ngược vòng.</p><p><b>03.</b> Quân được rải lần lượt theo vòng. Sau khi hết quân, nếu gặp ô Dân có quân có thể tiếp tục bốc rải.</p><p><b>04.</b> Khi gặp ô trống rồi đến ô có quân, bạn sẽ ăn quân ở ô đó. Ăn cả hai Quan thì kết thúc và tính điểm.</p><p><b>05.</b> Nếu cả năm ô Dân của người đến lượt đều trống, phải rải lại năm quân và trừ 5 điểm (có thể ghi nợ).</p><small>Đây là một biến thể luật được lập trình nhất quán; tùy địa phương có thể có cách chơi khác.</small><button class="btn primary" data-close="tutorial">Đã hiểu, vào chơi!</button></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script type="module" src="./app.js"></script>
+
+<!-- Nhạc nền Sân Đình Tuổi Thơ -->
+<audio id="bgm-audio" loop preload="auto">
+  <source src="./assets/audio/bgm.mp3" type="audio/mpeg">
+</audio>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
+</body></html>
