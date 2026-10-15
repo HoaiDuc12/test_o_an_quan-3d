@@ -32,3 +32,20 @@
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.08); }
 }
+
+.crumb-root {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  letter-spacing: inherit;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.crumb-root:hover {
+  color: #173c35; /* Đậm lên khi di chuột vào */
+  text-decoration: underline;
+  opacity: 0.85;
+}
